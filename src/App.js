@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
 
 
   render(){
+    const color = 'red'
+
     return (
-      <div className="App">
+      <div style={{ backgroundColor: color, height: '100vh' }}>
         <header className="App-header">
 
         </header>

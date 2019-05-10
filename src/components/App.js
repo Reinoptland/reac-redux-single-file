@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { changeColor } from '../actions/color'
 
 // X Reducers(S) -> src/reducers/myReducer.js
 // X 'Root' Reducer (or all reducers combined into 1) src/reducers/index.js
@@ -21,14 +22,7 @@ import { connect } from 'react-redux'
 class App extends Component {
 
   changeColor = () => {
-    // Change action to ActionCreator
-    const changeColor = (color) => {
-      return {
-        type: 'CHANGE_COLOR',
-        payload: color
-      }
-    }
-
+    // moved to /actions/color.js
 
     // Dispatch the result of changeColor action creator
     // { type: 'CHANGE_COLOR', payload: 'yellow' }

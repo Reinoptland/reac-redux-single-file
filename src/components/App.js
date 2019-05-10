@@ -21,13 +21,18 @@ import { connect } from 'react-redux'
 class App extends Component {
 
   changeColor = () => {
-    const action = {
-      type: 'CHANGE_COLOR',
-      payload: 'yellow'
+    // Change action to ActionCreator
+    const changeColor = (color) => {
+      return {
+        type: 'CHANGE_COLOR',
+        payload: color
+      }
     }
 
-    // CHECK DEVTOOLS
-    this.props.dispatch(action)
+
+    // Dispatch the result of changeColor action creator
+    // { type: 'CHANGE_COLOR', payload: 'yellow' }
+    this.props.dispatch(changeColor('yellow'))
   }
 
   render(){

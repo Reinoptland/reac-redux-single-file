@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { createStore } from 'redux';
 import { connect } from 'react-redux'
-import reducer from './reducers'
 
 // Reducers(S) -> src/reducers/myReducer.js
 // 'Root' Reducer (or all reducers combined into 1) src/reducers/index.js
@@ -15,11 +13,11 @@ import reducer from './reducers'
 
 // moved to /reducers/cheese.js
 
-const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// moved to /store.js
 
 // moved to /reducers/index.js
 
-export const store = createStore(reducer, enhancer)
+// moved to /store.js
 
 class App extends Component {
 

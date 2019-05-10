@@ -15,10 +15,18 @@ export const store = createStore(reducer, enhancer)
 class App extends Component {
 
   changeColor = () => {
-    console.log('clicked!')
+    const action = {
+      type: 'CHANGE_COLOR',
+      payload: 'yellow'
+    }
+
+    // CHECK DEVTOOLS
+    this.props.dispatch(action)
   }
 
   render(){
+    // We wrapped out component in connect, so we have access to this.props.dispatch
+    console.log('DISPATCH:', this.props.dispatch)
     return (
       <div style={{ backgroundColor: this.props.color, height: '100vh' }}>
         <header className="App-header">

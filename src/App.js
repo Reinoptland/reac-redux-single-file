@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { connect } from 'react-redux'
 
-
-const reducer = (state = 'blue', action) => {
+const color = (state = 'blue', action) => {
   console.log('STATE:', state, 'ACTION:', action)
   switch (action.type) {
     case "CHANGE_COLOR":
@@ -15,7 +14,22 @@ const reducer = (state = 'blue', action) => {
   }
 }
 
+const cheese = (state = 'swiss', action) => {
+  console.log('STATE:', state, 'ACTION:', action)
+  switch (action.type) {
+  
+    default:
+      return state  
+  }
+}
+
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const reducer = combineReducers({
+  // what you name your reducer here, will be the key in the state
+  color,
+  cheese
+})
 
 export const store = createStore(reducer, enhancer)
 
@@ -38,6 +52,8 @@ class App extends Component {
       <div style={{ backgroundColor: this.props.color, height: '100vh' }}>
         <header className="App-header">
           <button onClick={this.changeColor}>CHANGE EVERYTHING</button>
+          <br />
+          { this.props.cheese }
         </header>
       </div>
     );
@@ -45,8 +61,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    color: state
+    color: state.color,
+    cheese: state.cheese
   }
 }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { createStore } from 'redux';
+import { connect } from 'react-redux'
 
 
 const reducer = (state = 'red', action) => {
@@ -15,7 +16,7 @@ class App extends Component {
 
   render(){
     const color = 'red'
-
+    console.log(this.props.color)
     return (
       <div style={{ backgroundColor: color, height: '100vh' }}>
         <header className="App-header">
@@ -26,4 +27,11 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log('STATE INSIDE STORE:', state)
+  return {
+    color: state
+  }
+}
+
+export default connect(mapStateToProps)(App);

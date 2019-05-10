@@ -1,35 +1,23 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
 import { connect } from 'react-redux'
+import reducer from './reducers'
 
-const color = (state = 'blue', action) => {
-  console.log('STATE:', state, 'ACTION:', action)
-  switch (action.type) {
-    case "CHANGE_COLOR":
-      return action.payload
-  
-    default:
-      return state  
-  }
-}
+// Reducers(S) -> src/reducers/myReducer.js
+// 'Root' Reducer (or all reducers combined into 1) src/reducers/index.js
+// Store (creating it) src/store.js
+// React component /components/App 
+// Action(S) src/actions
 
-const cheese = (state = 'swiss', action) => {
-  console.log('STATE:', state, 'ACTION:', action)
-  switch (action.type) {
-  
-    default:
-      return state  
-  }
-}
+
+// moved to /reducers/color.js
+
+// moved to /reducers/cheese.js
 
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
-const reducer = combineReducers({
-  // what you name your reducer here, will be the key in the state
-  color,
-  cheese
-})
+// moved to /reducers/index.js
 
 export const store = createStore(reducer, enhancer)
 

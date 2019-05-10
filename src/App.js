@@ -5,7 +5,14 @@ import { connect } from 'react-redux'
 
 
 const reducer = (state = 'blue', action) => {
-  return state
+  console.log('STATE:', state, 'ACTION:', action)
+  switch (action.type) {
+    case "CHANGE_COLOR":
+      return action.payload
+  
+    default:
+      return state  
+  }
 }
 
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

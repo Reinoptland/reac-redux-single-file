@@ -14,11 +14,15 @@ export const store = createStore(reducer, enhancer)
 
 class App extends Component {
 
+  changeColor = () => {
+    console.log('clicked!')
+  }
+
   render(){
     return (
       <div style={{ backgroundColor: this.props.color, height: '100vh' }}>
         <header className="App-header">
-
+          <button onClick={this.changeColor}>CHANGE EVERYTHING</button>
         </header>
       </div>
     );
@@ -26,7 +30,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('STATE INSIDE STORE:', state)
   return {
     color: state
   }

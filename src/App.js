@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { connect } from 'react-redux'
 
 
-const reducer = (state = 'red', action) => {
+const reducer = (state = 'blue', action) => {
   return state
 }
 
@@ -15,10 +15,8 @@ export const store = createStore(reducer, enhancer)
 class App extends Component {
 
   render(){
-    const color = 'red'
-    console.log(this.props.color)
     return (
-      <div style={{ backgroundColor: color, height: '100vh' }}>
+      <div style={{ backgroundColor: this.props.color, height: '100vh' }}>
         <header className="App-header">
 
         </header>

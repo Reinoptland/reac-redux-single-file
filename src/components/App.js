@@ -26,6 +26,10 @@ class App extends Component {
 
     // Dispatch the result of changeColor action creator
     // { type: 'CHANGE_COLOR', payload: 'yellow' }
+
+    // BE WARNED: if you use mapDispatchToProps
+    // call your action creator as this.props.myActionCreator()
+    // and NOT myActionCreator() 
     this.props.changeColor('yellow')
   }
 
@@ -52,10 +56,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    changeColor: (color) => dispatch(changeColor(color)) 
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+// 
+export default connect(mapStateToProps, { changeColor })(App);

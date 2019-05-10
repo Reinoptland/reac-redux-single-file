@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import { connect } from 'react-redux'
 
-// Reducers(S) -> src/reducers/myReducer.js
-// 'Root' Reducer (or all reducers combined into 1) src/reducers/index.js
-// Store (creating it) src/store.js
-// React component /components/App 
+// X Reducers(S) -> src/reducers/myReducer.js
+// X 'Root' Reducer (or all reducers combined into 1) src/reducers/index.js
+// X Store (creating it) src/store.js
+// X React component /components/App 
 // Action(S) src/actions
 
 
